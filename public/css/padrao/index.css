@@ -1,0 +1,24 @@
+/* 
+    Document   : index
+    Created on : 05/01/2013, 22:27:59
+    Author     : cezar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div#corpoRight div#corpoRightBot{
+    height: auto;
+}
+
+div#corpoRightBotTop{
+    margin-bottom: 40px;
+}    
+
+div#corpoRightBotCorpo p{
+    font-size: 18px;
+    text-align: justify;
+    margin: 10%;
+    color: #658DB5;
+    line-height:25px;
+}
+

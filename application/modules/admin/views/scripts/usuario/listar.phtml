@@ -1,0 +1,73 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/admin/usuario/listar_usuario.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="admin" class="migalhas">  Administração >></span></a>
+        <a href="/admin/usuario/listar"><span class="migalhas">  Usuário >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-40">Colaborador</th>
+                        <th class="colum-20">Usuário</th>
+                        <th class="colum-20">Perfil</th>
+                        <th class="colum-20">Último Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdUsuario()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdUsuario()) . '" /></td>';
+                            }
+
+                            if ($val->getDtUltVisita() == NULL) {
+                                $dtUltVisita = "não logado";
+                            } else {
+                                $dtUltVisita = $val->getDtUltVisita()->format("d/m/Y H:i:s");
+                            }
+                            echo
+                            '<td class="link">' . $val->getIdColaborador()->getNoColaborador() . '</td>
+                             <td class="link">' . $val->getNoUsuario() . '</td>       
+                             <td class="link">' . $val->getIdPerfil()->getNoPerfil() . '</td>
+                             <td class="link">' . $dtUltVisita . '</td>
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="4">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

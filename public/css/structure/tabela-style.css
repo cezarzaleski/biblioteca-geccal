@@ -1,0 +1,92 @@
+/* 
+    Document   : tabela-style
+    Created on : 07/01/2013, 12:28:05
+    Author     : cezar.zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+table.tabela{
+    float: left;
+    margin: 0 5% 0 10%;
+    width: 85%;
+    border: 2px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    border-radius: 5px;
+    height: auto;
+    border-spacing: 0;
+    
+}
+table.tabela thead{
+    width: 100%;
+    font-size: 15px;
+    height: 30px;
+    background: #6BA5D0;
+}
+table.tabela thead tr{
+    font-size: 16px;
+    text-align:center;
+    color: #FFFFFF;
+}
+table.tabela thead tr th{
+    /*width: auto;*/
+    height: auto;
+    padding: 3px;
+    height: 25px;   
+    font-weight: bolder;
+}    
+table.tabela thead tr th#selectAll{
+    width: 2%;
+}
+table.tabela tbody{
+    font-size: 13px;
+    background: #FDFEFE;
+}
+table.tabela tbody tr{
+    margin: 10px 0;
+}
+table.tabela tbody tr.pointer{
+    cursor: pointer;
+}
+table.tabela tbody tr td{
+    text-align: center;
+    padding: 3px;
+    height: 25px;   
+    border-bottom: 1px solid #c4c4c4;
+}
+table.tabela tbody tr td img{
+    cursor: pointer;
+}
+table tbody tr.selected td{ background-color:#FBEC88!important; }
+
+/*###########################formatacao coluna tabelas#########################*/
+.colum-60{
+    width: 60%;
+}
+.colum-40{
+    width: 40%;
+}
+.colum-35{
+    width: 35%;
+}
+.colum-30{
+    width: 30%;
+}
+.colum-25{
+    width: 25%;
+}
+.colum-20{
+    width: 20%;
+}
+.colum-15{
+    width: 15%;
+}
+.colum-10{
+    width: 10%;
+}
+.colum-5{
+    width: 5%;
+}
+.colum-1{
+    width: 1%;
+}

@@ -1,0 +1,16 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/autor/cadastrar_autor.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/autor/listar"><span class="migalhas">  Autor >></span></a>
+        <span id="sem_link" class="migalhas">  Cadastrar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <?php echo $this->form; ?>
+        </div>
+    </div>
+</div>

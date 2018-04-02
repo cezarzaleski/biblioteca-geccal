@@ -1,0 +1,88 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/admin/turma/listar_turma.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/admin/turma/turma.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="admin" class="migalhas">  Administração >></span></a>
+        <a href="/admin/turma/listar"><span class="migalhas">  Turma >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <form id="ano">
+                <fieldset>
+                    <p>Selecione o ano para alterar as turmas.</p>
+                    <?php echo $this->form->getElement('nuAno'); ?>
+                </fieldset>
+            </form>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-15">Ciclo</th>
+                        <th class="colum-10">Início</th>
+                        <th class="colum-10">Término</th>
+                        <th class="colum-10">Idade</th>
+                        <th class="colum-20">Colaboradores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdTurma()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdTurma()) . '" /></td>';
+                            }
+                            $colaboradores = "";
+                            $voColTurma = $this->turma->findByColaboradorTurma($val->getIdTurma());
+                            $total = count($voColTurma);
+                            $cont = 1;
+                            foreach ($voColTurma as $colaborador) {
+                                if ($cont < $total) {
+                                    $colaboradores.=$colaborador->getIdColaborador()->getNoColaborador() . ", ";
+                                } else {
+                                    $colaboradores.=$colaborador->getIdColaborador()->getNoColaborador();
+                                }
+                                $cont++;
+                            }
+                            echo
+                            '<td class="link">' . $val->getIdCiclo()->getNoCiclo() . '</td>
+                             <td class="link">' . $val->getDtInicio()->format('d/m/Y') . '</td>
+                             <td class="link">' . $val->getDtFim()->format('d/m/Y') . '</td>
+                             <td class="link">' . $val->getNuIdadeMinima() . ' - ' . $val->getNuIdadeMaxima() . ' anos</td>
+                             <td class="link">' . $colaboradores . '</td>      
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="6">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

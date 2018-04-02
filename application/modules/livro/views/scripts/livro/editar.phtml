@@ -1,0 +1,50 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/livro/editar_livro.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/livro/livro/livro.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/editora/listar"><span class="migalhas">  Livro >></span></a>
+        <a href="/livro/livro/listar"><span class="migalhas">  Listar >></span></a>
+        <span id="sem_link" class="migalhas">  Editar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <form id="editarLivro" class="form" action="/livro/livro/editar">
+                <legend>Livro</legend>
+                <fieldset>
+                    <?php
+                    echo $this->form->getElement('noLivro');
+                    echo $this->form->getElement('nuEdicao');
+                    echo $this->form->getElement('nuAno');
+                    echo $this->form->getElement('idOrigemLivro');
+                    echo $this->form->getElement('idEditora');
+                    if ($this->cadastrarEditora) {
+                        echo'<p class="cadastroExterno">Caso a editora não esteja cadastrada <a id="cadEditora" href="">Clique aqui</a></p>';
+                    }
+                    echo $this->form->getElement('noObs');
+                    echo '<label class="optional" for="noAutor">Autores:</label>
+                        <select multiple="multiple" id="editarLivro">';
+                    foreach ($this->autorLivro as $value) {
+                        $autorSelected[] = $value['idAutor'];
+                        echo '<option selected value="' . $this->criptografia->cripto($value['idAutor']) . '">' . $value['noAutor'] . '</option>';
+                    }
+                    foreach ($this->autores as $val) {
+                        if (!in_array($val->getIdAutor(), $autorSelected)) {
+                            echo '<option value="' . $this->criptografia->cripto($val->getIdAutor()) . '">' . $val->getNoAutor() . '</option>';
+                        }
+                    }
+                    echo '</select>';
+                    if ($this->cadastrarAutor) {
+                        echo'<p class="cadastroExterno">Caso o autor não esteja cadastrado <a id="cadAutor" href="">Clique aqui</a></p>';
+                    }
+                    echo $this->form->getElement('idLivro');
+                    echo $this->form->getElement('submit');
+                    ?>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,309 @@
+/* 
+    Document   : cadastrar_livro
+    Created on : 30/01/2013, 07:14:49
+    Author     : cezar.zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div#cadastrarLivro { 
+    float: right;
+    width: 80%;
+    height: auto;
+    margin-left: 1%;
+    padding-left: 30%;
+}
+div#cadastrarLivro p{
+    color: #919090;
+    font-weight: bolder;
+    text-align: center;
+    margin: 3% 0 2% 13%;
+}
+div#cadastrarLivro ul{
+    height: 145px;
+}
+div#cadastrarLivro div.ms-selectable, div#cadastrarLivro div.ms-selection{
+    width: 36.5%;
+    height: auto;
+}
+div#cadastrarLivro div.ms-selection{
+    margin-right: 0;
+}
+.ms-container{
+    background: transparent url('/img/structure/arrow.png') no-repeat 57.2% 50%;
+}
+div#cadastrarLivro a.deselectAll{
+    color: #658DB5;
+    font-size: 95%;
+    width: 30%;
+    cursor: pointer;
+    float: left;
+    width: 50%;
+    padding-left: 45%;
+    text-align: center;
+}
+div#cadastrarLivro a.deselectAll:hover{
+    text-decoration: underline;
+}
+form#cadastrarLivro div#opcao{
+    float: left;
+    width: 100%;
+    color: #919090;
+}
+div#opcao label{
+    display: block;
+    width: 130px;
+    float: left;
+}
+form#cadastrarLivro fieldset{
+    display: none;
+}
+form#cadastrarLivro fieldset.selected{
+    display: block;
+}
+form.form fieldset#livro input#submit{
+    width: 110px;
+}
+textarea#motivoExclusao{
+    border: 1px solid black;
+    width: 100%;
+    font-size: 12px;
+}
+button#jqi_state0_buttonOk{
+    display: block;
+    cursor: pointer;
+}
+p.cadastroExterno{
+    display: block;
+    float: left;
+    width: 60%;
+    margin: 1% 0 0 32%;
+    font-size: 14px;
+    color: #658DB5;
+}
+p.cadastroExterno a{
+    text-decoration: underline;
+    color: #919090;
+}
+p.cadastroExterno a:hover{
+    text-decoration: underline;
+    color: #919090;
+}
+p.cadastroExterno a:visited{
+    font-size: 14px;
+    color: #919090;
+}
+
+/*tab jquery ui*/
+/* 
+    Document   : listManutencaoBeneficio
+    Created on : Aug 22, 2013, 11:04:26 AM
+    Author     : Reginaldo Junior
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.tab{
+    width: 940px;
+    float: left;    
+    margin: 16px auto 40px 230px;
+    height: 545px;
+    font-size: 12px;    
+}
+.tab p{
+    font-size: 15px;
+    font-weight: bold;
+    color: #293D7B;
+}
+#sliding-navigation{        
+    top: 130px;
+}
+#tabManut_processing{
+    margin-top: auto;
+}
+.dataTables_processing {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    box-shadow: 0 0 2px #333333;
+    color: #999999;
+    font-size: 16px;
+    height: 30px;
+    left: 50%;
+    margin-left: -125px;
+    margin-top: -15px;
+    padding: 14px 0 2px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 250px;
+}
+#tabManut{
+    border-collapse: collapse;
+    width: 100%;
+}
+#tabManut caption{
+    margin: 2px;
+    font-size: 15px;
+    color: red;
+}
+#tabManut thead th td{
+    font-weight: bold;        
+}
+#tabManut tbody tr{
+    cursor: pointer;
+}
+#tabManut tbody tr:nth-child(2n){
+    background: #c2f3fd;
+}
+#tabManut tbody tr td{
+    font-weight: 500; 
+    text-align: center;
+}
+#tabManut tbody tr.odd td.sorting_1 {
+    background-color: #f4f4f4;        
+}
+#tabManut tbody tr.even td.sorting_1 {
+    background-color: #aeeffd;
+}
+#tabManut tbody tr:hover, #tabManut tbody tr:hover td.sorting_1{
+    background-color: #f9febe;    
+}
+.center{
+    text-align: center;
+}
+/*
+ *default
+*/
+.paging_two_button .ui-button {
+    cursor: pointer;
+    float: left;
+}
+.paging_full_numbers .ui-button {
+    color: #333333 !important;
+    cursor: pointer;
+    margin: 0;
+    padding: 2px 6px;
+}
+.dataTables_paginate .ui-button {
+    margin-right: -0.1em !important;
+}
+.paging_full_numbers {
+    width: 350px !important;
+}
+.dataTables_wrapper .ui-toolbar {
+    padding: 5px;
+}
+.dataTables_paginate {
+    width: auto;
+}
+.dataTables_info {
+    padding-top: 3px;
+}
+table.display thead th {
+    cursor: pointer;
+    padding: 3px 0 3px 10px;
+}
+div.dataTables_wrapper .ui-widget-header {
+    font-weight: normal;
+}
+table.display thead th div.DataTables_sort_wrapper {
+    padding-right: 20px;
+    position: relative;
+}
+table.display thead th div.DataTables_sort_wrapper span {
+    margin-top: -8px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.dataTables_wrapper {
+    clear: both;
+    position: relative;
+}
+.dataTables_length {
+    float: left;
+    width: 40%;
+}
+.dataTables_filter {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+.dataTables_info {
+    float: left;
+    width: 50%;
+}
+.dataTables_paginate {
+    float: right;
+    text-align: right;
+}
+table.display {
+    border-collapse: collapse;
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+}
+table.display tfoot th {
+    font-weight: normal;
+    padding: 3px 0 3px 10px;
+}
+table.display tr.heading2 td {
+    border-bottom: 1px solid #AAAAAA;
+}
+table.display td {
+    padding: 3px 10px;
+}
+table.display td.center {
+    text-align: center;
+}
+.dataTables_scroll {
+    clear: both;
+}
+.top, .bottom {
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
+    padding: 15px;
+}
+.top .dataTables_info {
+    float: none;
+}
+.clear {
+    clear: both;
+}
+.dataTables_empty {
+    text-align: center;
+}
+tfoot input {
+    color: #444444;
+    margin: 0.5em 0;
+    width: 100%;
+}
+tfoot input.search_init {
+    color: #999999;
+}
+td.group {
+    background-color: #D1CFD0;
+    border-bottom: 2px solid #A19B9E;
+    border-top: 2px solid #A19B9E;
+}
+td.details {
+    background-color: #D1CFD0;
+    border: 2px solid #A19B9E;
+}
+.example_alt_pagination div.dataTables_info {
+    width: 40%;
+}
+.paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active {
+    border: 1px solid #AAAAAA;
+    color: #333333 !important;
+    cursor: pointer;
+    margin: 0 3px;
+    padding: 2px 5px;
+}
+.paging_full_numbers a.paginate_button {
+    background-color: #DDDDDD;
+}
+.paging_full_numbers a.paginate_button:hover {
+    background-color: #CCCCCC;
+    text-decoration: none !important;
+}

@@ -1,0 +1,78 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/pessoa/evangelizando/listar_evangelizando.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="pessoa" class="migalhas">  Pessoa >></span></a>
+        <a href="/pessoa/evangelizando/listar"><span class="migalhas">  Evangelizando >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-40">Nome</th>
+                        <th class="colum-25">Telefone</th>
+                        <th class="colum-10">Sexo</th>
+                        <th class="colum-25">Data Cadastro</th>
+                        <th class="colum-1">Vis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdEvangelizando()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdEvangelizando()) . '" /></td>';
+                            }
+                            $telefone = "";
+                            if($val->getNuFoneRes()!=NULL && $val->getNuFoneCel()!=NULL){
+                                $telefone = $val->getNuFoneRes() .'/ '.$val->getNuFoneCel();
+                            }else if($val->getNuFoneRes()!=NULL && $val->getNuFoneCel()==NULL){
+                                $telefone = $val->getNuFoneRes();
+                            }else if($val->getNuFoneRes()==NULL && $val->getNuFoneCel()!=NULL){
+                                $telefone = $val->getNuFoneCel();
+                            }
+                            
+                            echo
+                            '<td class="link">' . $val->getNoEvangelizando() . '</td>
+                            <td class="link">' . $telefone . '</td>    
+                            <td class="link">' . $val->getNoSexo() . '</td>    
+                            <td class="link">' . $val->getDtCadastro()->format('d/m/Y H:i:s') . '</td>
+                            <td rel="'.$this->criptografia->cripto($val->getIdEvangelizando()).'" id="visualizar"><img src="/img/structure/visualizar.png"/></td>            
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="5">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

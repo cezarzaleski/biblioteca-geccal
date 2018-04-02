@@ -1,0 +1,81 @@
+/* 
+    Document   : emprestimo_livro
+    Created on : 13/02/2013, 15:14:01
+    Author     : cezar.zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+form.form div#opcao,form.form div#opEmprestimo{
+    float: left;
+    width: 100%;
+    color: #919090;
+}
+div#opcao label{
+    display: block;
+    width: 130px;
+    float: left;
+}
+
+form.form div#opEmprestimo{
+    margin-bottom: 3%;
+}
+form.form div#opEmprestimo input{
+    margin: 1% 1% 0 0;
+}
+form.form div#opEmprestimo label{
+    color: #658DB5;
+    font-size: 90%;
+}
+
+form.form fieldset.busca{
+    display: none;
+}
+form.form fieldset.selected{
+    display: block;
+}
+form#listarEmprestimo input#submit{
+    margin-top: 0;
+}
+div#nuExemplar{
+    display: none;
+}
+div#mensagem{
+    display: none;
+    margin-top: 1%;
+    float: left;
+    width: 100%;
+}
+div#mensagem img{
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+div#mensagem p{
+    float: left;
+    font-size: 14px;
+
+}
+table.tabela{
+    display: none;
+}
+table.selected{
+    display: block;
+}
+p#instrucao{
+    color: #658DB5;
+    margin: 11% 0 3.5% 0;
+    display: block;
+}
+a.pendencia{
+    display: block;
+    float: left;
+    font-size: 14px;
+    color: #658DB5;
+    margin-left: 2%;
+    outline: none;
+}
+a.pendencia:hover{
+    text-decoration: underline;
+}
+

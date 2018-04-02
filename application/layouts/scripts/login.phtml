@@ -1,0 +1,47 @@
+<?php echo $this->doctype() ?>
+<head>
+    <?php echo $this->headMeta(); ?>
+    <?php echo $this->jQuery(); ?>
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink(); ?>
+    <?php echo $this->headScript(); ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/structure/login.css"); ?>"/>
+
+</head>
+<body>
+    <div id="geral">
+        <header>
+            <div id="topo">
+                <div class="topoLeft">
+                    <a href="http://www.geccal.org.br" target="_blank" title="http://www.geccal.org.br">
+                    <h2>GECCAL</h2>
+                    <h5>Grupo Espírita Cristão a Caminho da Luz</h5></a>
+                </div>
+                <div class="topoRight">
+                    <a href="#"><!--<button id="contato">CONTATO</button>--></a>
+                </div>
+            </div>
+        </header>
+        <div id="corpo">
+            <div id="corpoLeft">
+                <h2>BIBLIOTECA INFANTIL</h2>
+                <div id="mensagem">
+                    <div id="imagem">
+                        <img src="/img/structure/livros_infantis.png" title="Livros Infantis" alt="Livros Infantis"/>
+                    </div>   
+                    <div id="texto">
+                        <p>“Cada livro edificante é porta libertadora. O livro espírita, entretanto, emancipa a alma, nos fundamentos da vida.</p>
+                        <p>Amparemos o livro respeitável, que é luz de hoje; no entanto, auxiliemos e divulguemos, quanto nos seja possível, o livro espírita, que é luz de hoje, amanhã e sempre.</p>
+                        <p>O livro nobre livra da ignorância, mas o livro espírita livra da ignorância e livra do mal.”</p>
+                        <p id="autor">Emmanuel, no livro Doutrina e Vida</p>
+                    </div>
+                </div>
+            </div>
+            <div id="corpoRight">
+                <?php echo $this->layout()->content; ?>
+            </div>
+        </div>
+        <footer></footer>
+    </div>
+</body>
+</html>

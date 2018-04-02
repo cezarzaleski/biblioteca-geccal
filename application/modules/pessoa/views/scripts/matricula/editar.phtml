@@ -1,0 +1,27 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/pessoa/matricula/editar_matricula.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="pessoa" class="migalhas">  Pessoa >></span></a>
+        <a href="/pessoa/matricula/listar"><span class="migalhas">  Matrícula >></span></a>
+        <a href="/pessoa/matricula/listar"><span class="migalhas">  Listar >></span></a>
+        <span id="sem_link" class="migalhas">  Editar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <form class="form" id="editarMatricula" method="post">
+                <legend>Matrícula</legend>
+                <fieldset>
+                    <?php
+                    echo $this->form->getElement('noEvangelizando');
+                    echo $this->form->getElement('idTurma');
+                    echo $this->form->getElement('submit');
+                    echo $this->form->getElement('idEvangTurma');
+                    ?>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

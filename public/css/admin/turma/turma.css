@@ -1,0 +1,91 @@
+/* 
+    Document   : cadastrar_livro
+    Created on : 30/01/2013, 07:14:49
+    Author     : cezar.zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div#cadastrarTurma { 
+    float: right;
+    width: 80%;
+    height: auto;
+    margin-left: 1%;
+    padding-left: 30%;
+}
+div#cadastrarTurma p{
+    color: #919090;
+    font-weight: bolder;
+    text-align: center;
+    margin: 3% 0 2% 13%;
+}
+div#cadastrarTurma ul{
+    height: 145px;
+}
+div#cadastrarTurma div.ms-selectable, div#cadastrarTurma div.ms-selection{
+    width: 36.5%;
+    height: auto;
+}
+div#cadastrarTurma div.ms-selection{
+    margin-right: 0;
+}
+.ms-container{
+    background: transparent url('/img/structure/arrow.png') no-repeat 57.2% 50%;
+}
+div#cadastrarTurma a.deselectAll{
+    color: #658DB5;
+    font-size: 95%;
+    width: 30%;
+    cursor: pointer;
+    float: left;
+    width: 50%;
+    padding-left: 45%;
+    text-align: center;
+}
+div#cadastrarTurma a.deselectAll:hover{
+    text-decoration: underline;
+}
+div#cadastrarTurma div#opcao{
+    float: left;
+    width: 100%;
+    color: #919090;
+}
+form#ano{
+    float: left;
+    margin: 0 0 0 1.5%;
+    width: 86%;
+    margin-bottom: 1%;
+    
+}
+form#ano fieldset p{
+    font-size: 13px;
+    color: #658DB5;
+    margin-left: 10%;
+    margin-bottom: 1%;
+}
+form#ano fieldset label{
+    display: block;
+    font-weight: bolder;
+    font-size: 14px;
+    float: left;
+    width: 10%;
+    height: 32px;
+    margin-left: 10%;
+}
+form#ano fieldset select{
+    float: left;
+    width: 30%;
+    height: 32px;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background:  #fafafa;
+    padding-top: 0.5%;
+}
+form#ano fieldset select:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+form#ano fieldset select:hover{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}

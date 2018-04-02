@@ -1,0 +1,52 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/emprestimo/editar_emprestimo.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/livro/emprestimo/emprestimo_livro.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/emprestimo/listar"><span class="migalhas">  Emprestimo >></span></a>
+        <span id="sem_link" class="migalhas">  Editar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <form id="editarEmprestimo" class="form" method="post" action="/livro/emprestimo/cadastrar">
+                <legend>Editar Empréstimo de Livro</legend>
+                <?php echo "<div id='opcao'>" . $this->form->getElement('opcao') . "</div>"; ?>
+                <fieldset class="selected busca" id="evangelizando">
+                    <?php
+                    echo $this->form->getElement('idTurma');
+                    ?>
+                    <fieldset id="evangelizandoTurma">
+                        <?php
+                        echo $this->form->getElement('noEvangelizando') . "
+                        <div id='mensagem'><img src='/img/structure/atencao.png' title='Atenção' alt='Atenção' />
+                        <p></p></div>";
+                        echo $this->form->getElement('noLivroEmprestado');
+                        echo $this->form->getElement('idLivro');
+                        echo "<div id='nuExemplar'>" . $this->form->getElement('nuExemplar') . "</div>";
+                        echo $this->form->getElement('dtEmprestimo');
+                        echo $this->form->getElement('dtPrevDevolucao');
+                        echo $this->form->getElement('submit');
+                        ?>
+                    </fieldset>
+                </fieldset>
+                <fieldset id="colaborador" class="busca">
+                    <?php
+                    echo $this->form->getElement('idColaborador')."
+                    <div id='mensagem'><img src='/img/structure/atencao.png' title='Atenção' alt='Atenção' />
+                        <p></p></div>";
+                    echo $this->form->getElement('noLivroEmprestado');
+                    echo $this->form->getElement('idLivro');
+                    echo "<div id='nuExemplar'>" . $this->form->getElement('nuExemplar') . "</div>";
+                    echo $this->form->getElement('dtEmprestimo');
+                    echo $this->form->getElement('dtPrevDevolucao');
+                    echo $this->form->getElement('submit');
+                    ?>
+                </fieldset>
+                <?php echo $this->form->getElement('idEmprestimo');?>
+            </form>
+        </div>
+    </div>
+</div>

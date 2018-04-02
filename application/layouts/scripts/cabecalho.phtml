@@ -1,0 +1,6 @@
+<?php
+$session = new Zend_Session_Namespace('config');
+echo "<h5>$session->noColaborador ($session->noPerfil)</h5>
+        <h6>Último acesso $session->dtUltVisita</h6>";
+?>
+<a href="/autenticacao/index/logout"><h6>Logout</h6></a>

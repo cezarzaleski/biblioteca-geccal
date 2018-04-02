@@ -1,0 +1,21 @@
+div#modal{
+    width: auto;
+    height: auto;
+}
+div#modal table{
+    width: 100%; 
+    border-collapse: collapse;    
+    text-align: justify;
+    font-size: 15px;;
+    color: #404040;
+}
+div#modal table tr{
+    width: auto;
+    height: 25px;
+}
+div#modal table tr td{
+    width: auto;
+}
+div#modal table tr td.label{
+    width: 18%;
+}

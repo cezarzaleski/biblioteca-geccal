@@ -1,0 +1,236 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/emprestimo/listar_emprestimo.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/livro/emprestimo/emprestimo_livro.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/emprestimo/listar"><span class="migalhas">  Empréstimo >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="listarEmprestimo">
+                <p class="obrigatorio">*Campo obrigatório</p>
+                <form class="form" id="listarEmprestimo">
+                    <legend>Buscar Empréstimo</legend>
+                    <?php echo "<div id='opcao'>" . $this->form->getElement('opcao') . "</div>"; ?>
+                    <p id="instrucao">Para buscar todos os empréstimos clique em Pesquisar.</p>
+                    <div id="opEmprestimo">
+                        <p>Situação Empréstimo</p>    
+                        <input type="checkbox" name="stEmprestimo[]" id="stEmprestimo" value="emprestado"><label>Pendente</label>
+                        <input type="checkbox" name="stEmprestimo[]" id="stEmprestimo" value="devolvido"><label>Devolvido</label>
+                    </div>
+                    <fieldset>    
+                        <fieldset class="selected busca" id="evangelizando">
+                            <?php
+                            echo $this->form->getElement('nuAnoEvangelizando');
+                            echo $this->form->getElement('idTurma');
+                            echo $this->form->getElement('noEvangelizando');
+                            ?>
+                        </fieldset>
+                        <fieldset class="busca" id="colaborador">
+                            <?php
+                            echo $this->form->getElement('idColaborador');
+                            echo $this->form->getElement('nuAnoColaborador');
+                            ?>
+                        </fieldset>
+                        <fieldset class="busca" id="livro">
+                            <?php
+                            echo $this->form->getElement('idLivro');
+                            echo '<div id="nuExemplar">' . $this->form->getElement('nuExemplar') . '</div>';
+                            ?>
+                        </fieldset>
+                        <?php
+                        echo $this->form->getElement('submit');
+                        ?>
+                    </fieldset>
+                </form>
+            </div>
+            <?php
+            $stCheckAll = "false";
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+                echo '<a id="updateLivro" title="Devolver Livros" alt="Devolver Livros" ><button><img src="/img/structure/devolver.png"/></button></a>';
+            }
+            ?>
+            <table id="evangelizando" class="tabela selected">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-25">Evangelizando</th>
+                        <th class="colum-10">Ciclo</th>
+                        <th class="colum-20">Livro</th>
+                        <th class="colum-5">Exemplar</th>
+                        <th class="colum-15">Dt. Empréstimo</th>
+                        <th class="colum-15">Dt. Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (sizeof($this->paginatorEvangelizando)) {
+                        if ($this->update) {
+                            $trTemp = 'class="pointer"';
+                        }
+                        foreach ($this->paginatorEvangelizando as $val) {
+                            $dtDevolucao = "pendente";
+                            if ($val["dtDevolucao"]) {
+                                $dtDevolucao = $val["dtDevolucao"]->format("d/m/Y");
+                                $trClass = "";
+                            }else{
+                                $trClass = $trTemp;
+                                $stCheckAll = "true";
+                            }
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val["idEmprestimo"]) . '">';
+                            $disabled = '';
+                            if ($this->delete) {
+                                if ($val['dtDevolucao']) {
+                                    $disabled = 'disabled="disabled"';
+                                }
+                                echo '<td><input type="checkbox" '.$disabled.' rel="' . $this->criptografia->cripto($val["idEmprestimo"]) . '" /></td>';
+                            }
+                            
+
+                            echo
+                            '<td class="link">' . $val["noEvangelizando"] . '</td>
+                            <td class="link">' . $val["noCiclo"] . '</td>    
+                            <td class="link">' . $val["noLivro"] . '</td>    
+                            <td class="link">' . $val["nuExemplar"] . '</td>    
+                            <td class="link">' . $val["dtEmprestimo"]->format("d/m/Y") . '</td>    
+                            <td class="link">' . $dtDevolucao . '</td>    
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="7">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>   
+            <table id="colaborador" class="tabela">
+                <thead>
+                    <tr>
+                    <?php
+                    if ($this->delete) {
+                        echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                    }
+                    ?>
+                        <th class="colum-25">Colaborador</th>
+                        <th class="colum-10">Função</th>
+                        <th class="colum-20">Livro</th>
+                        <th class="colum-5">Exemplar</th>
+                        <th class="colum-15">Dt. Empréstimo</th>
+                        <th class="colum-15">Dt. Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (sizeof($this->paginatorColaborador)) {
+                        if ($this->update) {
+                            $trTemp = 'class="pointer"';
+                        }
+                        foreach ($this->paginatorColaborador as $val) {
+                            $dtDevolucao = "pendente";
+                            if ($val["dtDevolucao"]) {
+                                $trClass = "";
+                                $dtDevolucao = $val["dtDevolucao"]->format("d/m/Y");
+                            }else{
+                                $trClass = $trTemp;
+                                $stCheckAll = "true";
+                            }
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val["idEmprestimo"]) . '">';
+                            $disabled = '';
+                            if ($this->delete) {
+                                if ($val['dtDevolucao']) {
+                                    $disabled = 'disabled="disabled"';
+                                }
+                                echo '<td><input type="checkbox" '.$disabled.' rel="' . $this->criptografia->cripto($val["idEmprestimo"]) . '" /></td>';
+                            }
+                            
+
+                            echo
+                            '<td class="link">' . $val["noColaborador"] . '</td>
+                                                <td class="link">' . $val["noFuncao"] . '</td>    
+                                                <td class="link">' . $val["noLivro"] . '</td>    
+                                                <td class="link">' . $val["nuExemplar"] . '</td>    
+                                                <td class="link">' . $val["dtEmprestimo"]->format("d/m/Y") . '</td>    
+                                                <td class="link">' . $dtDevolucao . '</td>    
+                                                </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="7">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table> 
+            <table id="livro" class="tabela selected">
+                <thead>
+                    <tr>
+                    <?php
+                    if ($this->delete) {
+                        echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                    }
+                    ?>
+                        <th class="colum-25">Livro</th>
+                        <th class="colum-5">Exemplar</th>
+                        <th class="colum-25">Evangelizando/Colaborador</th>
+                        <th class="colum-15">Dt. Empréstimo</th>
+                        <th class="colum-15">Dt. Devolução</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                if (sizeof($this->paginatorLivro)) {
+                    if ($this->update) {
+                        $trTemp = 'class="pointer"';
+                    }
+                    foreach ($this->paginatorLivro as $val) {
+                        if ($val['dtDevolucao']) {
+                            $trClass = "";
+                        } else {
+                            $stCheckAll = "true";
+                            $trClass = $trTemp;
+                        }
+                        echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val["idEmp"]). '">';
+                        if ($this->delete) {
+                            $disabled = "";
+                            if ($val['dtDevolucao']) {
+                                $disabled = 'disabled="disabled"';
+                            }
+                            echo '<td><input type="checkbox" '.$disabled.' rel="' . $this->criptografia->cripto($val["idEmp"]). '" /></td>';
+                        }
+                        $dtDevolucao = "pendente";
+                        if ($val["dtDevolucao"]) {
+                            $dtDevolucao = $val["dtDevolucao"]->format("d/m/Y");
+                        }
+                        if($val['noColaborador']){
+                            $nome=$val['noColaborador'];
+                        }else{
+                            $nome=$val['noEvangelizando'];
+                        }
+
+                        echo
+                        '<td class="link">' . $val["noLivro"] . '</td>
+                        <td class="link">' . $val["nuExemplar"] . '</td>    
+                        <td class="link">' . $nome . '</td>    
+                        <td class="link">' . $val["dtEmprestimo"]->format("d/m/Y") . '</td>    
+                        <td class="link">' . $dtDevolucao . '</td>    
+                        </tr>';
+                    }
+                } else {
+                    echo '<tr><td colspan="6">Nenhum registro encontrado</td></tr>';
+                }
+                echo "<p id='checkAll'>{$stCheckAll}</p>";
+                ?>
+                </tbody>
+            </table>   
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>  
+
+        </div>
+    </div>
+</div>

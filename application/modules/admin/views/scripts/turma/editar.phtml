@@ -1,0 +1,45 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/admin/turma/editar_turma.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/admin/turma/turma.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="admin" class="migalhas">  Administração >></span></a>
+        <a href="/admin/turma/listar"><span class="migalhas">  Turma >></span></a>
+        <a href="/admin/turma/listar"><span class="migalhas">  Listar >></span></a>
+        <span id="sem_link" class="migalhas">  Editar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <form id="editarTurma" class="form" method="post">
+                <legend>Turma</legend>
+                <fieldset>
+                    <?php echo $this->form->getElement('idCiclo'); ?>
+                    <?php echo $this->form->getElement('dtInicio'); ?>
+                    <?php echo $this->form->getElement('dtFim'); ?>
+                    <?php echo $this->form->getElement('nuIdadeMinima'); ?>
+                    <?php echo $this->form->getElement('nuIdadeMaxima'); ?>
+                    <?php echo $this->form->getElement('noObs'); ?>
+                    <?php
+                    echo '<div id="cadastrarTurma">
+                        <p>Colaboradores*</p>
+                        <a class="deselectAll">Remover todos</a>
+                        <select multiple="multiple" class="multiselect" id="editarTurma">';
+                    foreach ($this->colaboradorTurma as $value) {
+                        echo '<option selected value="' . $this->criptografia->cripto($value->getIdColaborador()->getIdColaborador()) . '">' . $value->getIdColaborador()->getNoColaborador() . '</option>';
+                    }
+                    foreach ($this->colaboradores as $val) {
+                        echo '<option value="' . $this->criptografia->cripto($val['idColaborador']) . '">' . $val['noColaborador'] . '</option>';
+                    }
+                    echo '</select></div>';
+                    echo $this->form->getElement('idTurma');
+                    echo $this->form->getElement('submit');
+                    ?>
+
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,289 @@
+/* 
+    Document   : geral
+    Created on : 29/09/2012, 15:22:44
+    Author     : Cezar Zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+* {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, 'Times New Roman', sans-serif;
+    border: none;
+}
+
+div#geral {
+    width: 100%;
+    height: 100%;
+}
+
+/*#################################TOPO######################################*/
+div#topo{
+    width: 100%;
+    height: 70px;   
+    float: left;
+    background: #658DB5;
+    box-shadow: 0 2px 2px #c4c4c4;
+}
+div.topoLeft{
+    float: left;
+    width: 60%;
+    margin: 9px 0 0 6%;
+    color: #FFFFFF;
+}
+div.topoLeft a{
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+}
+div.topoLeft a:visited{
+    border: 0;
+}
+div.topoRight{
+    width: 25%;
+    float: right;
+    margin: 9px 0 0 3%;
+    color: #FFFFFF;
+    text-align: right;
+}
+div.topoRight h5{
+    font-size: 11px;
+}
+div.topoRight h6{
+    font-size: 9px;
+    color: #FFFFFF;
+}
+div.topoRight a h6{
+    margin-top: 2px;
+}
+div.topoRight a:hover{
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+/*###########################################################################*/
+/*#################################CORPO#####################################*/
+/*MENU*/
+div#corpo{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+nav#direita{
+    margin: 6% 0 0 6%;
+    width: 16%;
+    height: auto;
+    float: left;
+}
+/*PAINEL PRINCIPAL*/
+div#corpoRight{
+    float: left;
+    height: 100px;
+    margin: 5% 0 0 4%;
+    width: 70%;
+}
+
+div#corpoRight div#corpoRightTop{
+    float: left;
+    height: auto;
+    width: 100%;
+}
+div#corpoRight div#corpoRightTop span.migalhas{
+    font-size: 11px;
+    color: #828282;
+    cursor: pointer;
+}
+
+div#corpoRight div#corpoRightTop span.migalhas:hover{
+    text-decoration: underline;
+}
+div#corpoRight div#corpoRightTop span#sem_link:hover{
+    text-decoration: none;
+    cursor: default;
+}
+div#corpoRight div#corpoRightBot{
+    float: left;
+    height: auto;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 2px;;
+    box-shadow: 0 2px 2px #c4c4c4;
+
+
+}
+div#corpoRight div#corpoRightBotTop{
+    float: left;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    background: #658DB5;
+}
+div#corpoRight div#corpoRightBotCorpo p.obrigatorio{
+    /*border: 1px solid black;*/
+    float: right;
+    display: block;
+    margin: 4% 16% 0 0;
+    font-size: 85%;       
+    color: #cd0a0a;
+}
+/*###########################################################################*/
+/*##############################CAMPO DE PESQUISA TABELA#####################*/
+div#pesquisa{
+    float: left;
+    margin: 5% 5% 2% 10%;
+    width: 85%;
+    background: #F2F2F2;
+    height: auto;
+    /*border-radius: 10px;*/
+}
+div#pesquisa form{
+    width: 50%;
+    margin: 2% 25% 2% 25%;
+    height: 32px;
+
+}
+div#pesquisa label{
+    display: block;
+    float: left;
+    width: 24%;
+    color: #658DB5;
+    font-weight: bolder;
+    margin-top: 1%;
+}    
+div#pesquisa input#pesquisar{
+    width: 75%;
+    height: 32px;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background:  #fafafa;
+    float: left;
+}
+div#pesquisa input#pesquisar:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+div#pesquisa input#pesquisar:hover{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+/*###########################################################################*/
+/*#############################BOTAO EXCLUIR ################################*/
+a#excluir,a#updateLivro, a#matricular{
+    display: none;
+}
+
+a#excluir button, a#updateLivro button,a#matricular button{
+    width: 7%;
+    height: 32px;
+    float: right;
+    margin: 0 5% 1% 0;
+    border-radius: 5px;
+    background: #F5F4F4;
+    cursor: pointer;
+    border: 1px solid #c4c4c4;
+}
+button img{
+    width: 30%;
+    height: 60%;
+
+}
+/*###########################################################################*/
+/*#############################DIV PAGINATION################################*/
+div.paginationControl{
+    float: left;
+    margin: 3px 0 4% 10%;
+    display: block;
+    width: 85%;
+    font-size: 12px;
+    text-align: right;
+}
+div#moduloGeral{
+    width: 100%;
+    float: left;
+    height: auto;
+    margin-top: 2.5%;
+
+}
+div#moduloGeral p#instrucao{
+    color: #658DB5;
+    margin-bottom: 2.5%;
+}
+div#moduloGeral p#modulo{
+    cursor: pointer;
+    margin-top: 3%;
+    font-size: 16px;
+    font-weight: bolder;
+}
+div#moduloGeral p#modulo:hover{
+    text-decoration: underline;
+}
+div.modulo{
+    display: none;
+    width: 100%;
+    float: left;
+    height: auto;
+    margin: 2% 0 3% 0;
+
+}
+div.selected{
+    display: block;
+}
+div.modulo div.submodulo{
+    width: 100%;
+    float: left;
+    height: auto;
+    margin-top: 2.5%;
+}
+
+div.modulo div.submodulo p{
+    text-align: center;
+    font-weight: bolder;
+    color: #919090;
+}
+div.modulo div.submodulo a{
+    color: #658DB5;
+    font-size: 95%;
+    width: 30%;
+}
+div.modulo div.submodulo a{
+    cursor: pointer;
+}
+div.modulo div.submodulo a:hover{
+    text-decoration: underline;
+}
+div.modulo div.submodulo a.selectAll{
+    margin-left: 15%;
+}
+p#checkAll{
+    display: none;
+}
+
+div.loadGif{
+	width:50px;
+	height:50px;
+	/*padding-left: 10px;*/
+	border: 0px;
+	
+}
+
+
+.loadGif img{
+	width:50px;
+	height:50px;
+	border: 0px;
+	display: block;
+}
+#jqi{
+	width: 200px;
+	
+}
+.jqibuttons{
+	display: none;
+}

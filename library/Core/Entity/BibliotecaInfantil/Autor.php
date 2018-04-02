@@ -1,0 +1,192 @@
+<?php
+
+
+namespace Core\Entity\BibliotecaInfantil;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Autor
+ *
+ * @ORM\Table(name="autor")
+ * @ORM\Entity
+ */
+class Autor
+{
+    /**
+     * @var integer $idAutor
+     *
+     * @ORM\Column(name="id_autor", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAutor;
+
+    /**
+     * @var string $noAutor
+     *
+     * @ORM\Column(name="no_autor", type="string", length=45, nullable=false)
+     */
+    private $noAutor;
+
+    /**
+     * @var boolean $stAtivo
+     *
+     * @ORM\Column(name="st_ativo", type="boolean", nullable=false)
+     */
+    private $stAtivo;
+
+    /**
+     * @var datetime $dtCadastro
+     *
+     * @ORM\Column(name="dt_cadastro", type="datetime", nullable=false)
+     */
+    private $dtCadastro;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Livro", inversedBy="idAutor")
+     * @ORM\JoinTable(name="autor_livro",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_autor", referencedColumnName="id_autor")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_livro", referencedColumnName="id_livro")
+     *   }
+     * )
+     */
+    private $idLivro;
+
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Editora", mappedBy="idAutor")
+     */
+    private $idEditora;
+
+    public function __construct()
+    {
+        $this->idLivro = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idEditora = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get idAutor
+     *
+     * @return integer 
+     */
+    public function getIdAutor()
+    {
+        return $this->idAutor;
+    }
+
+    /**
+     * Set noAutor
+     *
+     * @param string $noAutor
+     * @return Autor
+     */
+    public function setNoAutor($noAutor)
+    {
+        $this->noAutor = $noAutor;
+        return $this;
+    }
+
+    /**
+     * Get noAutor
+     *
+     * @return string 
+     */
+    public function getNoAutor()
+    {
+        return $this->noAutor;
+    }
+
+    /**
+     * Set stAtivo
+     *
+     * @param boolean $stAtivo
+     * @return Autor
+     */
+    public function setStAtivo($stAtivo)
+    {
+        $this->stAtivo = $stAtivo;
+        return $this;
+    }
+
+    /**
+     * Get stAtivo
+     *
+     * @return boolean 
+     */
+    public function getStAtivo()
+    {
+        return $this->stAtivo;
+    }
+
+    /**
+     * Set dtCadastro
+     *
+     * @param datetime $dtCadastro
+     * @return Autor
+     */
+    public function setDtCadastro($dtCadastro)
+    {
+        $this->dtCadastro = $dtCadastro;
+        return $this;
+    }
+
+    /**
+     * Get dtCadastro
+     *
+     * @return datetime 
+     */
+    public function getDtCadastro()
+    {
+        return $this->dtCadastro;
+    }
+
+    /**
+     * Add idLivro
+     *
+     * @param Livro $idLivro
+     * @return Autor
+     */
+    public function addLivro(\Core\Entity\BibliotecaInfantil\Livro $idLivro)
+    {
+        $this->idLivro[] = $idLivro;
+        return $this;
+    }
+
+    /**
+     * Get idLivro
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getIdLivro()
+    {
+        return $this->idLivro;
+    }
+
+    /**
+     * Add idEditora
+     *
+     * @param Editora $idEditora
+     * @return Autor
+     */
+    public function addEditora(\Core\Entity\BibliotecaInfantil\Editora $idEditora)
+    {
+        $this->idEditora[] = $idEditora;
+        return $this;
+    }
+
+    /**
+     * Get idEditora
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getIdEditora()
+    {
+        return $this->idEditora;
+    }
+}

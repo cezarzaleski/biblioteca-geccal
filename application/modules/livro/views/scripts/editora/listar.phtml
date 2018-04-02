@@ -1,0 +1,63 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/editora/listar_editora.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/editora/listar"><span class="migalhas">  Editora >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-60">Nome da Editora</th>
+                        <th class="colum-35">Data Cadastro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdEditora()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdEditora()) . '" /></td>';
+                            }
+                            echo
+                            '<td class="link">' . $val->getNoEditora() . '</td>
+                                   <td class="link">' . $val->getDtCadastro()->format('d/m/Y H:i:s') . '</td>
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="3">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

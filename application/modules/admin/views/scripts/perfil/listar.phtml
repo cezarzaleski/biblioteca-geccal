@@ -1,0 +1,64 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/admin/perfil/listar_perfil.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="admin" class="migalhas">  Administração >></span></a>
+        <a href="/admin/perfil/listar"><span class="migalhas">  Perfil >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-60">Perfil</th>
+                        <!--<th class="colum-1">Permissões</th>-->
+                        </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdPerfil()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdPerfil()) . '" /></td>';
+                            }
+                            echo
+                            '<td class="link">' . $val->getNoPerfil() . '</td>'
+                             //<td rel="'.$this->criptografia->cripto($val->getIdPerfil()).'" id="visPermissao"><img title="Visualizar Permissões" alt="Visualizar Permissões" src="/img/structure/visualizar.png"/></td>               
+                                   
+                            .'</tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="2">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

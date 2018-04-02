@@ -1,0 +1,73 @@
+/* 
+    Document   : form_autenticacao
+    Created on : 25/12/2012, 19:37:20
+    Author     : cezar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+div#corpoRight form#autenticacao{
+    margin: 5% 0 0 10%;
+    height: auto;
+}
+div#corpoRight form#autenticacao legend{
+    font-size: 18px;
+    color: #658DB5;
+    font-weight: bolder;
+    text-shadow: 0 1px 1px #658DB5;
+    margin-bottom: 5%;
+    text-align: left;
+    float: left;
+    display: block;
+    width: 100%;
+}
+div#corpoRight form#autenticacao fieldset{
+    border: none;
+    font-size: 11px;
+}
+div#corpoRight form#autenticacao label{
+    font-weight: bolder;
+    font-size: 12px;
+}
+div#corpoRight form#autenticacao input[type="text"], input[type="password"]{
+    width: 90%;
+    height: 32px;
+    margin-bottom: 5%;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background:  #fafafa;
+}
+div#corpoRight form#autenticacao input[type="text"]:focus,  input[type="password"]:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+div#corpoRight form#autenticacao input[type="text"]:hover,  input[type="password"]:hover{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+div#corpoRight form#autenticacao input#submit{
+    float: left;
+    cursor: pointer;
+    width: 65px;
+    height: 35px;
+    background: #658db5;
+    color: #ffffff;
+    font-weight: bolder;
+    border: none;
+    border-radius: 3px;
+}
+div#corpoRight form#autenticacao input#submit:hover{
+    background: #6EACDA;
+}
+div#corpoRight a{
+    color: black;
+    font-size: 11px;
+    margin: 5% 0 6% 10%;
+    display: block;
+}
+div#corpoRight a:hover{
+    text-decoration: underline;
+    color: #658db5;
+}
+
+

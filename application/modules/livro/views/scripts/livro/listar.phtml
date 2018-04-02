@@ -1,0 +1,78 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/livro/listar_livro.js"); ?>"></script>
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/livro/livro/livro.css"); ?>"/>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/livro/listar"><span class="migalhas">  Livro >></span></a>
+        <span id="sem_link" class="migalhas">  Listar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <div id="pesquisa">
+                <form>
+                    <label for="pesquisar">Pesquisar</label>
+                    <input type="text" id="pesquisar" name="pesquisar"/> 
+                </form>
+            </div>
+            <?php
+            if ($this->delete) {
+                echo '<a id="excluir"><button><img src="/img/structure/excluir.png"/></button></a>';
+            }
+            ?>
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <?php
+                        if ($this->delete) {
+                            echo '<th id="selectAll"><input id="selectAll" type="checkbox"/></th>';
+                        }
+                        ?>
+                        <th class="colum-30">Livro</th>
+                        <th class="colum-10">Exemplar</th>
+                        <th class="colum-15">Qnt. Exemplar</th>
+                        <th class="colum-10">Edição</th>
+                        <th class="colum-5">Ano</th>
+                        <th class="colum-15">Origem</th>
+                        <th class="colum-25">Editora</th>
+                        <th class="colum-1">Autores</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($this->update) {
+                        $trClass = 'class="pointer"';
+                    }
+
+                    if (sizeof($this->paginator)) {
+                        foreach ($this->paginator as $val) {
+                            echo '<tr ' . $trClass . ' rel="' . $this->criptografia->cripto($val->getIdLivro()) . '">';
+                            if ($this->delete) {
+                                echo '<td><input type="checkbox" rel="' . $this->criptografia->cripto($val->getIdLivro()) . '" /></td>';
+                            }
+                            $qntExemplar = $this->livro->countExemplar($val->getNoLivro());
+                            echo
+                            '<td class="link">' . $val->getNoLivro() . '</td>
+                             <td class="link">' . $val->getNuExemplar() . '</td>
+                             <td class="link">' . $qntExemplar[0]['qntExemplar'] . '</td>
+                             <td class="link">' . $val->getNuEdicao() . '</td>
+                             <td class="link">' . $val->getNuAno() . '</td>
+                             <td class="link">' . $val->getIdOrigemLivro()->getNoOrigem() . '</td>
+                             <td class="link">' . $val->getIdEditora()->getNoEditora() . '</td>
+                             <td rel="' . $this->criptografia->cripto($val->getIdLivro()) . '" id="autores"><img src="/img/structure/visualizar.png"/></td>            
+                            </tr>';
+                        }
+                    } else {
+                        echo '<tr><td colspan="9">Nenhum registro encontrado</td></tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="paginationControl">
+                <?php echo $this->paginator; ?>
+            </div>    
+        </div>
+    </div>
+</div>

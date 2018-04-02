@@ -1,0 +1,17 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/livro/editora/editar_editora.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="livro" class="migalhas">  Livro >></span></a>
+        <a href="/livro/editora/listar"><span class="migalhas">  Editora >></span></a>
+        <a href="/livro/editora/listar"><span class="migalhas">  Listar >></span></a>
+        <span id="sem_link" class="migalhas">  Editar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <?php echo $this->form; ?>
+        </div>
+    </div>
+</div>

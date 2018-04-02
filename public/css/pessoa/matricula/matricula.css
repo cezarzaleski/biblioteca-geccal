@@ -1,0 +1,65 @@
+
+div#filtroIdade{
+    float: left;
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+div#filtroIdade p{
+    font-size: 14px;
+    color: #658DB5;
+    margin-bottom: 0;
+}
+div#filtroIdade label{
+    color: #919090;
+    width: 10%;
+    height: 10px;
+}
+#filtroIdade-label{
+    display: none;
+}
+form#cadastrarMatricula fieldset{
+    display: none;
+}
+form#cadastrarMatricula fieldset.selected{
+    display: block;
+}
+
+form#turma{
+    float: left;
+    margin: 0 0 0 1.5%;
+    width: 86%;
+    margin-bottom: 1%;
+}
+form#turma fieldset p{
+    font-size: 13px;
+    color: #658DB5;
+    margin-left: 10%;
+    margin-bottom: 1%;
+}
+form#turma fieldset label{
+    display: block;
+    font-weight: bolder;
+    font-size: 14px;
+    float: left;
+    width: 10%;
+    height: 32px;
+    margin-left: 10%;
+}
+form#turma fieldset select{
+    float: left;
+    width: 30%;
+    height: 32px;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background:  #fafafa;
+    padding-top: 0.5%;
+}
+form#turma fieldset select:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+form#turma fieldset select:hover{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}

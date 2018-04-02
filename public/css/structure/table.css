@@ -1,0 +1,111 @@
+table.table {
+	float: left;
+	margin: 0 5% 0 10%;
+	width: 85%;
+	border: 2px solid #c4c4c4;
+	border-bottom: 1px solid #c4c4c4;
+	border-radius: 5px;
+	height: auto;
+	border-spacing: 0;
+}
+
+#DataTables_Table_0_wrapper {
+	float: left;
+	margin: 10% 5% 0 10%;
+	margin-top: 10%;
+	width: 85%;
+	/*border: 2px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+    border-radius: 5px;*/
+	height: auto;
+	border-spacing: 0;
+}
+
+.table dataTable thead tr {
+	border-bottom: none;
+}
+
+div.dataTables_scrollHead table.table thead {
+	/*width: 100%;*/
+	font-size: 15px;
+	height: 30px;
+	background: #6BA5D0;
+}
+
+div.dataTables_scrollHead table.table thead tr {
+	font-size: 16px;
+	/*text-align:center;*/
+	color: #FFFFFF;
+}
+
+div.dataTables_scrollHead table.table thead tr th {
+	height: 25px;
+	font-weight: bolder;
+}
+
+div.dataTables_scrollHead table.table thead tr th#selectAll {
+	width: 2%;
+}
+
+div.dataTables_scrollBody table.table tbody {
+	font-size: 13px;
+	background: #FDFEFE;
+}
+
+div.dataTables_scrollBody table.table tbody tr.pointer {
+	cursor: pointer;
+	text-align: center;
+}
+
+#DataTables_Table_0_filter {
+	width: 50%;
+}
+
+#DataTables_Table_0_wrapper label input {
+	width: 70%;
+	height: 32px;
+	border: 1px solid #919090;
+	border-radius: 5px;
+	background: #fafafa;
+	margin-top: 2%;
+	margin-right: 3%;
+}
+
+#DataTables_Table_0_length {
+	/* 	border: 1px solid black; */
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#DataTables_Table_0_length label select {
+	width: 10px%;
+	height: 23px;
+	border: 1px solid #919090;
+	border-radius: 5px;
+	background: #fafafa;
+	margin-top: 2%;
+	margin: 2px 1px auto 2px;
+}
+
+#DataTables_Table_0_wrapper label input:FOCUS,#DataTables_Table_0_length label select:FOCUS
+	{
+	border: 1px solid #658DB5;
+	background: #ffffff;
+}
+
+#DataTables_Table_0_wrapper label input:HOVER,#DataTables_Table_0_length label select:HOVER
+	{
+	border: 1px solid #658DB5;
+	background: #ffffff;
+}
+
+#DataTables_Table_0_info {
+	width: 290px;
+	margin-top: 10px;
+}
+
+.dataTables_paginate {
+	margin-right: 85px;
+	margin-top: 10px;
+	float: right;
+}

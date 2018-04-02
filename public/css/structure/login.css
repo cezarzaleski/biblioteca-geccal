@@ -1,0 +1,81 @@
+/* 
+    Document   : login
+    Created on : 21/12/2012, 23:40:46
+    Author     : Cezar Zaleski
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+/*#################################TOPO#######################################*/
+div.topoRight{
+    width: 25%;
+    float: left;
+    margin: 9px 0 0 3%;
+}
+div.topoRight a button#contato{
+    margin: 9px 0 0 15%;
+    background: #ffffff;  
+    border-radius: 3px;
+    box-shadow: 2px 2px 2px #c4c4c4;
+    width: 70px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 12px;
+    float: right;
+    font-weight: bolder;
+        
+}
+div.topoRight a button#contato:hover{
+    background: #F2F2F2;
+    box-shadow: 2px 2px 2px #F1F1F1;
+}
+/*###########################################################################*/
+/*#################################CORPO#####################################*/
+/*PAINEL PRINCIPAL*/
+div#corpoLeft{
+    float: left;
+    width: 60%;
+    height: 470px;
+    margin: 5% 0 0 6%;
+    background: #F8F8F8;
+    box-shadow: 0 2px 2px #c4c4c4;
+    border-radius: 5px;
+}    
+div#corpoLeft h2{
+    color: #073763;
+    margin: 5% 0 10% 0;
+    text-align: center;
+}
+div#corpoLeft div#mensagem{
+    margin: 5%;
+}
+div#corpoLeft div#mensagem div#imagem{
+    float: left;
+    width: 30%;
+}
+div#corpoLeft div#mensagem div#texto{
+    float: left;
+    width: 69%;
+    text-align: justify;
+    font-weight: bolder;    
+    color: #073763;
+    line-height: 22px;
+}
+div#corpoLeft div#mensagem div#texto p#autor{
+    text-align: right;
+    margin-top: 3%;
+}
+div#corpoRight{
+    float: left;
+    width: 25%;
+    height: auto;   
+    margin: 5% 0 0 3%;
+    background: #F8F8F8;
+    box-shadow: 0 2px 2px #c4c4c4;
+    border-radius: 5px;
+}
+/*###########################################################################*/

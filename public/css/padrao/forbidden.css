@@ -1,0 +1,24 @@
+/* 
+    Document   : forbidden
+    Created on : 03/01/2013, 14:04:02
+    Author     : cezar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+
+
+div#corpoRightBotTop{
+    margin-bottom: 40px;
+}
+
+
+div#corpoRightBotCorpo p{
+    font-size: 18px;
+    text-align: justify;
+    margin: 10%;
+    color: #658DB5;
+    line-height:25px;
+}
+

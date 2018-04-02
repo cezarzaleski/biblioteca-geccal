@@ -1,0 +1,100 @@
+/* 
+    Document   : form-style
+    Created on : 05/01/2013, 23:11:10
+    Author     : cezar
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+form.form{
+    float: left;
+    margin: 0% 5% 1% 10%;
+    width: 75%;
+    /*border: 1px solid black;*/
+    padding-top: 0;
+}
+form.form fieldset{
+    float: left;
+    width: 100%;
+}
+form.form legend{
+    /*border: 1px solid black;*/
+    font-size: 22px;
+    color: #658DB5;
+    font-weight: bolder;
+    text-shadow: 0 1px 1px #658DB5;
+    margin-bottom: 1%;
+    text-align: center;
+    float: left;
+    display: block;
+    width: 100%;
+}
+form.form fieldset label{
+    display: block;
+    font-weight: bolder;
+    font-size: 14px;
+    float: left;
+    width: 32%;
+    height: 32px;
+    margin-top: 2%;
+}
+form.form fieldset input[type="text"], form.form fieldset select, form.form fieldset input[type="password"],
+form.form fieldset textArea{
+    float: left;
+    width: 67%;
+    height: 32px;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background:  #fafafa;
+    margin-top: 2%;
+}
+form.form fieldset textArea{
+    height: 65px;
+    font-size: 12px;
+}
+form.form fieldset input[type="text"]:focus, form.form fieldset select:focus, 
+form.form fieldset input[type="password"]:focus, form.form textArea:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+form.form fieldset input[type="text"]:hover, form.form fieldset select:hover, 
+form.form fieldset input[type="password"]:hover, form.form fieldset textArea:hover{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+form.form fieldset input[type="text"]:disabled, form.form fieldset input[type="password"]:disabled{
+    background: #E5E5E5;
+}
+form.form fieldset select{
+    padding-top: 5px;
+}
+form.form fieldset input#submit{
+    float: right;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    background: #658db5;
+    color: #ffffff;
+    font-weight: bolder;
+    border: none;
+    border-radius: 3px;
+    margin: 5% 0 2% 82%;
+    display: block;
+}
+form.form fieldset input#submit:hover{
+    background: #6EACDA;
+}
+form.form fieldset #icone{
+    float: left;
+    margin: 3% 0 0 1%;
+}
+form.form fieldset input#alterSenha{
+    float: right;
+    margin: 3% 17% 0 0;
+    width: 100%;
+}
+form.form dt#legend-label{
+    display: none;
+}
+
+

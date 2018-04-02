@@ -1,0 +1,16 @@
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/padrao/index.css"); ?>"/>
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/padrao/senha/editar_senha.js"); ?>"></script>
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao" id="title"><span id="modulo" rel="home" class="migalhas">Home >></span></a>
+        <span id="sem_link" class="migalhas">  Editar Senha </span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <?php echo $this->form;?>
+            
+        </div>
+    </div>
+</div>

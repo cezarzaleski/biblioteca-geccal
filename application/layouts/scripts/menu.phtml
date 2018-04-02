@@ -1,0 +1,54 @@
+<?php
+$sessionConfig = new Zend_Session_Namespace('config');
+$perfilBusiness = new \Core\Models\Business\PerfilBusiness();
+$funcionalidadeBusiness = new \Core\Models\Business\FuncionalidadeBusiness();
+$voModuloPerfil = $perfilBusiness->findByModuloPerfil($sessionConfig->idPerfil);
+?>
+<div class="boxTop">    
+    <ul id="tabMenu">
+        <li class="home"><img src="/img/structure/images/home.png" title="Home" alt="Home" /></li>
+        <?php
+        $allModulo = array();
+        foreach ($voModuloPerfil as $val) {
+            if (!in_array($val['idModulo'], $allModulo)) {
+                $allModulo[] = $val['idModulo'];
+                echo '<li class="' . $val['noModulo'] . '"><img src="/img/structure/images/' . $val['noImg'] . '" title="' . $val['noMenu'] . '" alt="' . $val['noMenu'] . '" /></li>';
+            }
+        }
+        ?>
+    </ul>
+</div>
+<div class="boxBody">
+    <div id="home" class="show parent">
+        <ul>
+            <li><a href="/padrao">Informações</a></li>
+            <li class="last"><a href="/padrao/senha/editar">Alterar Senha</a></li>
+            <!--<li class="last"><a href="/padrao/ano/editar">Alterar Ano</a></li>-->
+        </ul>  
+    </div>  
+    <?php
+    $allModulo = array();
+    foreach ($voModuloPerfil as $val) {
+
+        if (!in_array($val['idModulo'], $allModulo)) {
+            $allModulo[] = $val['idModulo'];
+            $voFuncionalidade = $funcionalidadeBusiness->findByFuncModulo($val["idModulo"], TRUE, $sessionConfig->idPerfil);
+            $total = count($voFuncionalidade);
+            $cont = 1;
+            echo '<div id="' . $val['noModulo'] . '" class="parent">
+                    <ul>';
+            $class = "";
+            foreach ($voFuncionalidade as $value) {
+                if ($cont == $total) {
+                    $class = 'class="last"';
+                }
+                $url = "/" . $value['noModulo'] . "/" . $value['noController'] .
+                        "/" . $value['noTipoFuncionalidade'];
+                echo '<li ' . $class . '><a href="' . $url . '">' . $value['noMenu'] . '</a></li>';
+                $cont++;
+            }
+            echo '</ul></div>';
+        }
+    }
+    ?>
+    

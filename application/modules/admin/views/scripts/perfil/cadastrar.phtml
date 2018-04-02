@@ -1,0 +1,50 @@
+<script type="text/javascript" src="<?php echo $this->baseUrl("js/admin/perfil/cadastrar_perfil.js"); ?>"></script>
+
+<div id="corpoRight">
+    <div id="corpoRightTop">
+        <a href="/padrao"><span class="migalhas">Home >></span></a>
+        <a href="#"><span id="modulo" rel="admin" class="migalhas">  Administração >></span></a>
+        <a href="/admin/perfil/listar"><span class="migalhas">  Perfil >></span></a>
+        <span id="sem_link" class="migalhas">  Cadastrar</span>
+    </div>
+    <div id="corpoRightBot">
+        <div id="corpoRightBotTop"></div>
+        <div id="corpoRightBotCorpo">
+            <p class="obrigatorio">*Campo obrigatório</p>
+            <form id="cadastrarPerfil" class="form" action="/admin/perfil/cadastrar">
+                <legend>Perfil</legend>
+                <fieldset>
+                    <?php echo $this->form->getElement('noPerfil'); ?>
+                    <div id="moduloGeral">
+                        <p id="instrucao">Clique sobre o módulo para adicionar permissões.</p>
+                        <?php
+                        foreach ($this->voModulo as $val) {
+                            echo '<p id="modulo" rel="' . $val->getNoModulo() . '"><img src="/img/structure/images/'
+                            . $val->getNoImg() . '"/>' . $val->getNoMenu() . '</p>
+                                  <div id="' . $val->getNoModulo() . '" class="modulo">';
+
+                            foreach ($this->perfil->findByControllerMod($val->getIdModulo()) as $value) {
+                                echo'<div id="'.$value->getNoController().'" class="submodulo">
+                                    <p>' . $value->getNoSubmodulo() . '</p>
+                                    <a rel="' . $value->getNoController() . '" class="selectAll">Selecionar todos</a> | 
+                                    <a rel="' . $value->getNoController() . '" class="deselectAll">Remover todos</a>
+                                    <select multiple="multiple" class="multiselect" id="' . $value->getNoController() . '">';
+
+                                foreach ($this->perfil->findByFuncController($value->getIdController()) as $funcionalidade) {
+                                    echo '<option value="' . $this->criptografia->cripto($funcionalidade['idFuncionalidade']) . '">' . $funcionalidade['noTipoFuncionalidade'] . '</option>';
+                                }
+                                echo '</select>';
+                                echo'</div>';
+                            }
+                            echo'</div>';
+                        }
+                        ?>
+
+                    </div>
+                    <?php echo $this->form->getElement('submit'); ?>
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+</div>  

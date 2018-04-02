@@ -1,0 +1,33 @@
+<link type="text/css" rel="stylesheet" href="<?php echo $this->baseUrl("/css/structure/pagination.css"); ?>"/>
+<?php if ($this->pageCount): ?>
+    
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+            <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">
+                <button> &lt;&lt;</button>
+            </a> |
+        <?php else: ?>
+            <button><span class="disabled">&lt;&lt;</span> </button>|
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?php echo $this->url(array('page' => $page)); ?>">
+                    <?php echo $page; ?>
+                </a> |
+            <?php else: ?>
+                <?php echo '<span class="select">'.$page.'</span>';?> |
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+            <a href="<?php echo $this->url(array('page' => $this->next)); ?>">
+                <button>&gt;&gt;</button>
+            </a>
+        <?php else: ?>
+        <button><span class="disabled">&gt;&gt;</span></button>
+        <?php endif; ?>
+    
+<?php endif; ?>
