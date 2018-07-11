@@ -9,4 +9,7 @@ RUN chown -R www-data:www-data \
         /var/www/html/data/session \
         /var/www/html/data/upload
 
+RUN chmod +x /var/www/html/vhost.sh
+
+
 CMD ["./vhost.sh"]
