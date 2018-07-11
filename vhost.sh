@@ -17,7 +17,7 @@
 
 #echo "Informe o caminho do site (Ex.: /var/www/sitexemplo) :"
 #read path
-path="html"
+path="html/public"
 vhost="biblioteca"
 
 #echo "Criando configuração de VHost para o servidor"
