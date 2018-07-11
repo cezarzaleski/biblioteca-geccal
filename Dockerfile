@@ -12,4 +12,4 @@ RUN chown -R www-data:www-data \
 RUN chmod +x /var/www/html/vhost.sh
 
 
-CMD ["./vhost.sh"]
+#CMD ["./vhost.sh"]
