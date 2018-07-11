@@ -20,9 +20,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
         $view->setEncoding('UTF-8');
 
         $view->headLink()->headLink(array('rel' => 'shortcut icon',
-            'href' => '/img/structure/icons/geccal.ico',
+            'href' => $this->baseUrl('/img/structure/icons/geccal.ico'),
             'type' => 'image/icon'), 'PREPEND');
-        $view->headLink()->prependStylesheet("/css/structure/geral.css")
+        $view->headLink()->prependStylesheet($this->baseUrl("/css/structure/geral.css"))
                 ->prependStylesheet("/css/structure/validationEngine.css")
                 ->prependStylesheet("/css/structure/jquery.ui.css")
                 ->prependStylesheet("/css/structure/chosen.css")
