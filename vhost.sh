@@ -14,7 +14,7 @@
 #!/bin/bash
 
 echo "Informe o nome do servidor (Ex.: siteexemplo) :"
-read vhost
+#read vhost
 
 echo "Informe o caminho do site (Ex.: /var/www/sitexemplo) :"
 #read path
