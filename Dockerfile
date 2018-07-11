@@ -14,4 +14,4 @@ RUN rm /var/www/html/index.php
 RUN chmod +x /var/www/html/vhost.sh
 
 
-CMD ["./vhost.sh"]
+#CMD ["./vhost.sh"]
