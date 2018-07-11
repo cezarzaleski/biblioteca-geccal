@@ -12,16 +12,15 @@
 #                                                         #
 ###########################################################
 #!/bin/bash
-
-echo "Informe o nome do servidor (Ex.: siteexemplo) :"
+#echo "Informe o nome do servidor (Ex.: siteexemplo) :"
 #read vhost
 
-echo "Informe o caminho do site (Ex.: /var/www/sitexemplo) :"
+#echo "Informe o caminho do site (Ex.: /var/www/sitexemplo) :"
 #read path
 path="html"
 vhost="biblioteca"
 
-echo "Criando configuração de VHost para o servidor"
+#echo "Criando configuração de VHost para o servidor"
 
 #aqui é criado o arquivo de virtual host para o domínio e
 #é feita a escrita das configurações no arquivo
@@ -39,15 +38,15 @@ echo "<VirtualHost *:80>
 </VirtualHost>" > /etc/apache2/sites-available/$vhost.conf
 
 #ativa-se o o virtual host para que o serviço possa reconhecê-lo
-echo "Ativando VHOST $vhost"
+#echo "Ativando VHOST $vhost"
 a2ensite $vhost.conf
 
 #escreve no arquivo de hosts do linux
-echo "Atualizando arquivo hosts"
+#echo "Atualizando arquivo hosts"
 #echo "127.0.1.1     $vhost www.$vhost" >> /etc/hosts
 
 #renicia-se o servidor apache para aplicar as configurações
-echo "Reiniciando apache";
+#echo "Reiniciando apache";
 service apache2 restart
 
-echo "VHOST criado";
+#echo "VHOST criado";
