@@ -6,3 +6,6 @@ services:
     ports:
       - "8000:80"
       - "10084:10081"
+    environment:
+      - "GIT_URL=https://497d5753df71d6076ea57d6a3a9b2bb55969b737@github.com/cezarzaleski/biblioteca-geccal.git"
+      - "ZS_ADMIN_PASSWORD=123456"
