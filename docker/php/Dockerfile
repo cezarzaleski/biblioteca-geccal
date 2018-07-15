@@ -1,8 +1,7 @@
-FROM php-zendserver:8.5-php5.6
-COPY . /var/www/html
+FROM php:5.6-fpm
 
-COPY docker/nginx/biblioteca.conf /etc/apache2/sites-available/
 WORKDIR /var/www/html
+COPY . /var/www/html
 
 RUN chown -R www-data:www-data \
         /var/www/html/data/cache \
