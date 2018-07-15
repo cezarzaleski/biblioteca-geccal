@@ -1,4 +1,4 @@
 FROM nginx:1.14.0
-ADD biblioteca.conf /etc/nginx/conf.d/biblioteca.conf
+ADD default.conf /etc/nginx/conf.d/default.conf
 
 COPY public /var/www/public
