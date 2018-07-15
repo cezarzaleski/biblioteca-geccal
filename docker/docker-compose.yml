@@ -41,3 +41,4 @@ services:
 #    image: redis:3.0-alpine
 volumes:
   dbdata:
+#  docker build -t cezarzaleski/bibliotecageccal .

@@ -1,16 +1,16 @@
 FROM php:5.6-fpm
 
-WORKDIR /var/www/html
-COPY . /var/www/html
+WORKDIR /var/www
+COPY . /var/www
 
 RUN chown -R www-data:www-data \
-        /var/www/html/data/cache \
-        /var/www/html/data/session \
-        /var/www/html/data/upload
+        /var/www/data/cache \
+        /var/www/data/session \
+        /var/www/data/upload
 
-RUN rm /var/www/html/index.php
+RUN rm /var/www/index.php
 
-RUN chmod +x /var/www/html/vhost.sh
+RUN chmod +x /var/www/vhost.sh
 
 
 #CMD ["./vhost.sh"]
