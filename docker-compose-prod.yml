@@ -29,9 +29,9 @@ services:
     ports:
       - 8000:80
     links:
-      - app
+      - php
     depends_on:
-      - app
+      - php
  #redis
 #  cache:
 #    image: redis:3.0-alpine
