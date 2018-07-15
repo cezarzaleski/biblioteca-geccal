@@ -21,8 +21,8 @@ services:
       - "DB_PORT=3306"
     links:
         - database
-      depends_on:
-        - database
+    depends_on:
+      - database
  #webserver
   web:
     image: cezarzaleski/nginx:1.14.0
