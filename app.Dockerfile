@@ -4,7 +4,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 RUN chown -R www-data:www-data \
-        /var/www/data
+        /var/www
 
 
 RUN chmod +x /var/www/vhost.sh
