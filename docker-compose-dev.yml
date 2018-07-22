@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  api:
+    image: php-zendserver:8.5-php5.6
+    ports:
+      - "8080:80"
+      - "10084:10081"
+    volumes:
+        - ".:/code"
