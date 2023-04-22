@@ -1,0 +1,4 @@
+LoadModule rewrite_module /usr/lib/apache2/modules/mod_rewrite.so
+<Directory /var/www/html>
+  AllowOverride All
+</Directory>

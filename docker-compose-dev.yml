@@ -1,12 +1,28 @@
-version: '2'
+version: '3'
 
 services:
-  api:
-    image: php-zendserver:8.5-php5.6
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html
+
     ports:
       - "8080:80"
-      - "10084:10081"
-    environment:
-      - "ZS_ADMIN_PASSWORD=123456"
-    volumes:
-        - ".:/code"
+    networks:
+      - app_network
+
+#  db:
+#    image: mysql:5.6
+#    environment:
+#      MYSQL_DATABASE: database_name
+#      MYSQL_ROOT_PASSWORD: root_password
+#    volumes:
+#      - ./mysql:/var/lib/mysql
+#    networks:
+#      - app_network
+
+networks:
+  app_network:
+    driver: bridge
