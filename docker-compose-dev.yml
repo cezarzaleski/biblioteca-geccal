@@ -8,10 +8,13 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=geccal
-      - MYSQL_USER=geccal
-      - MYSQL_PASSWORD=geccal
+      MYSQL_ROOT_PASSWORD: geccal
+      MYSQL_USER: geccal
+      MYSQL_PASSWORD: geccal
+      MYSQL_DATABASE: geccal
+
+    ports:
+      - "13306:3306"
 
   php:
     container_name: php
@@ -22,6 +25,11 @@ services:
       - .:/var/www/html
     depends_on:
       - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: geccal
+      MYSQL_USER: geccal
+      MYSQL_PASSWORD: geccal
+      MYSQL_DATABASE: geccal
 
   nginx:
     container_name: nginx
