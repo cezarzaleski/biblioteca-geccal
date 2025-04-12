@@ -1,17 +1,13 @@
-FROM php-zendserver:8.5-php5.6
-COPY . /var/www/html
+FROM php:5.6-apache
 
-COPY docker/nginx/biblioteca.conf /etc/apache2/sites-available/
-WORKDIR /var/www/html
+COPY ./ /var/www/html/
 
-RUN chown -R www-data:www-data \
-        /var/www/html/data/cache \
-        /var/www/html/data/session \
-        /var/www/html/data/upload
-
-RUN rm /var/www/html/index.php
-
-RUN chmod +x /var/www/html/vhost.sh
+COPY httpd.conf /etc/apache2/httpd.conf
 
 
-#CMD ["./vhost.sh"]
+RUN a2enmod rewrite
+RUN docker-php-ext-install mysqli
+
+# Adiciona a linha de configuração ao apache2.conf
+RUN echo "Include /etc/apache2/httpd.conf" >> /etc/apache2/apache2.conf
+RUN echo "DirectoryIndex index.php" >> /etc/apache2/apache2.conf

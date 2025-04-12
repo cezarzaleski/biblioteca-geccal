@@ -1,8 +1,8 @@
 version: '2'
 services:
   web:
-#    build: .
-    image: cezarzaleski/bibliotecageccal
+    build: .
+#    image: cezarzaleski/bibliotecageccal
     ports:
       - "8000:80"
       - "10084:10081"

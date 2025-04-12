@@ -33,21 +33,22 @@ class LivroModel extends \Core\Persist\Model {
     }
 
     public function countExemplar($noLivro) {
-        $params = array(1 => $noLivro, 2 => TRUE);
-        $qb = $this->getEntityManager()->createQueryBuilder()
+        try {
+            $params = array(1 => $noLivro, 2 => TRUE);
+            $qb = $this->getEntityManager()->createQueryBuilder()
                 ->from($this->_repositoryName, "L")
-                ->select("count(L.noLivro) as qntExemplar")
+                ->select("max(L.nuExemplar) as qntExemplar")
                 ->where('L.noLivro = ?1 AND L.stAtivo = ?2 ')
                 ->setParameters($params)
-                ->groupBy('L.noLivro')
-                ->orderBy('L.nuExemplar', 'ASC')
-                ->setMaxResults(1);
+                ->groupBy('L.noLivro, L.nuExemplar');
+            $query = $qb->getQuery();
+            $results = $query->getArrayResult();
+            return $results;
+        } catch (\Exception $e) {
+            var_dump($e->getMessage());
+            exit();
+        }
 
-        $query = $qb->getQuery();
-        $results = $query->getArrayResult();
-
-
-        return $results;
     }
 
     public function findByAutorLivro($idLivro) {
