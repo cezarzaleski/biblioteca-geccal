@@ -27,20 +27,14 @@ services:
       - mysql
     environment:
       MYSQL_ROOT_PASSWORD: geccal
-#      local
-#      MYSQL_HOST: mysql
-#      MYSQL_PORT: 3306
-#      MYSQL_USER: geccal
-#      MYSQL_PASSWORD: geccal
-#      MYSQL_DATABASE: geccal
-
-#      vultr
-      MYSQL_HOST: 167.179.69.38
-      MYSQL_PORT: 3307
+      # local
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
       MYSQL_USER: geccal
       MYSQL_PASSWORD: geccal
-      MYSQL_DATABASE: biblioteca_infantil_geccal
+      MYSQL_DATABASE: geccal
 
+      # vultr (removed external configuration)
   nginx:
     container_name: nginx
     image: nginx:latest
