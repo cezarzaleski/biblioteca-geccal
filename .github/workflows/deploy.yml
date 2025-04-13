@@ -1,0 +1,48 @@
+name: Deploy Biblioteca Infantil
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_PHP: cezarzaleski/app-biblioteca-infantil
+  IMAGE_WEB: cezarzaleski/web-biblioteca-infantil
+  VERSION: 1.0.${{ github.run_number }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Login DockerHub
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+      - name: Build PHP image
+        run: docker build -t ${{ env.IMAGE_PHP }}:${{ env.VERSION }} ./php
+
+      - name: Build WEB image
+        run: docker build -t ${{ env.IMAGE_WEB }}:${{ env.VERSION }} ./web
+
+      - name: Push PHP image
+        run: docker push ${{ env.IMAGE_PHP }}:${{ env.VERSION }}
+
+      - name: Push WEB image
+        run: docker push ${{ env.IMAGE_WEB }}:${{ env.VERSION }}
+
+      - name: Deploy na VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /caminho/do/seu/projeto
+            sed -i "s|${{ env.IMAGE_PHP }}:.*|${{ env.IMAGE_PHP }}:${{ env.VERSION }}|g" docker-compose.yml
+            sed -i "s|${{ env.IMAGE_WEB }}:.*|${{ env.IMAGE_WEB }}:${{ env.VERSION }}|g" docker-compose.yml
+            docker-compose pull
+            docker-compose down
+            docker-compose up -d
