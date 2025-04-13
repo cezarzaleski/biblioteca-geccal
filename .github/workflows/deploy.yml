@@ -42,9 +42,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /caminho/do/seu/projeto
-            sed -i "s|${{ env.IMAGE_PHP }}:.*|${{ env.IMAGE_PHP }}:${{ env.VERSION }}|g" docker-compose.yml
-            sed -i "s|${{ env.IMAGE_WEB }}:.*|${{ env.IMAGE_WEB }}:${{ env.VERSION }}|g" docker-compose.yml
+            cd /projetos
+            sed -i "s|${{ env.IMAGE_PHP }}:.*|${{ env.IMAGE_PHP }}:${{ env.VERSION }}|g" docker-compose-prod.yaml
+            sed -i "s|${{ env.IMAGE_WEB }}:.*|${{ env.IMAGE_WEB }}:${{ env.VERSION }}|g" docker-compose-prod.yaml
             docker compose pull
             docker compose down
-            docker compose up -d
+            docker compose -f docker-compose-prod.yaml up -d
