@@ -45,6 +45,6 @@ jobs:
             cd /caminho/do/seu/projeto
             sed -i "s|${{ env.IMAGE_PHP }}:.*|${{ env.IMAGE_PHP }}:${{ env.VERSION }}|g" docker-compose.yml
             sed -i "s|${{ env.IMAGE_WEB }}:.*|${{ env.IMAGE_WEB }}:${{ env.VERSION }}|g" docker-compose.yml
-            docker-compose pull
-            docker-compose down
-            docker-compose up -d
+            docker compose pull
+            docker compose down
+            docker compose up -d
