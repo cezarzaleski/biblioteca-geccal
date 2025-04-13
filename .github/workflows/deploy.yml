@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /projetos
+            cd /root/projetos
             sed -i "s|${{ env.IMAGE_PHP }}:.*|${{ env.IMAGE_PHP }}:${{ env.VERSION }}|g" docker-compose-prod.yaml
             sed -i "s|${{ env.IMAGE_WEB }}:.*|${{ env.IMAGE_WEB }}:${{ env.VERSION }}|g" docker-compose-prod.yaml
             docker compose pull
