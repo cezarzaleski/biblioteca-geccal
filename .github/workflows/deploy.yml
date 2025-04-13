@@ -24,10 +24,10 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Build PHP image
-        run: docker build -t ${{ env.IMAGE_PHP }}:${{ env.VERSION }} ./app.Dockerfile .
+        run: docker build -t ${{ env.IMAGE_PHP }}:${{ env.VERSION }} -f ./app.Dockerfile .
 
       - name: Build WEB image
-        run: docker build -t ${{ env.IMAGE_WEB }}:${{ env.VERSION }} ./web.Dockerfile .
+        run: docker build -t ${{ env.IMAGE_WEB }}:${{ env.VERSION }} -f ./web.Dockerfile .
 
       - name: Push PHP image
         run: docker push ${{ env.IMAGE_PHP }}:${{ env.VERSION }}
