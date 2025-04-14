@@ -3,8 +3,7 @@ name: Deploy Biblioteca Infantil
 on:
   push:
     branches:
-      - main
-      - configure-automatic-deploy
+      - master
 
 env:
   IMAGE_PHP: cezarzaleski/app-biblioteca-infantil
