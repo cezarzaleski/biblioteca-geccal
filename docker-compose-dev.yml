@@ -23,16 +23,18 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/var/www/html
+    expose:
+      - "9000"
     depends_on:
       - mysql
     environment:
       MYSQL_ROOT_PASSWORD: geccal
-      # local
       MYSQL_HOST: mysql
       MYSQL_PORT: 3306
       MYSQL_USER: geccal
       MYSQL_PASSWORD: geccal
       MYSQL_DATABASE: geccal
+
 
       # vultr (removed external configuration)
   nginx:
@@ -48,3 +50,7 @@ services:
 
 volumes:
   db_data:
+
+networks:
+  default:
+    driver: bridge
