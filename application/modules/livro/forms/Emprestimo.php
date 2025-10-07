@@ -24,28 +24,28 @@ class Livro_Form_Emprestimo extends Zend_Form {
 
 
         $idTurma = new Zend_Form_Element_Select('idTurma', array("tabindex" => "1",
-                    "title" => "Turma", "class" => "validate[required]"));
+                    "title" => "Turma", "class" => "validate[required] chosen-select"));
         $idTurma->setRequired(true)->setLabel('Turma*:');
         $this->addElement($idTurma);
 
         $noEvangelizando = new Zend_Form_Element_Select('noEvangelizando', array("tabindex" => "2",
-                    "title" => "Evangelizando", "class" => "validate[required]"));
+                    "title" => "Evangelizando", "class" => "validate[required] chosen-select"));
         $noEvangelizando->setRequired(true)->setLabel('Evangelizando*:');
         $noEvangelizando->addMultiOption(NULL, "Selecione a turma...");
         $this->addElement($noEvangelizando);
 
         $idColaborador = new Zend_Form_Element_Select('idColaborador', array("tabindex" => "2",
-                    "title" => "Colaborador", "class" => "validate[required]"));
+                    "title" => "Colaborador", "class" => "validate[required] chosen-select"));
         $idColaborador->setRequired(true)->setLabel('Colaborador*:');
         $this->addElement($idColaborador);
 
         $idLivro = new Zend_Form_Element_Select('idLivro', array("tabindex" => "3",
-                    "title" => "Livro", "class" => "validate[required]"));
+                    "title" => "Livro", "class" => "validate[required] chosen-select"));
         $idLivro->setRequired(true)->setLabel('Livro*:');
         $this->addElement($idLivro);
 
         $nuExemplar = new Zend_Form_Element_Select('nuExemplar', array("tabindex" => "4",
-                    "title" => "Exemplar", "class" => "validate[required]"));
+                    "title" => "Exemplar", "class" => "validate[required] chosen-select"));
         $nuExemplar->setRequired(true)->setLabel('Exemplar*:');
         $this->addElement($nuExemplar);
 
@@ -67,12 +67,12 @@ class Livro_Form_Emprestimo extends Zend_Form {
         $this->addElement($dtPrevDevolucao);
 
         $nuAnoEvangelizando = new Zend_Form_Element_Select('nuAnoEvangelizando', array("tabindex" => "1",
-                    "title" => "Ano"));
+                    "title" => "Ano", "class" => "chosen-select"));
         $nuAnoEvangelizando->setLabel('Ano:');
         $this->addElement($nuAnoEvangelizando);
 
         $nuAnoColaborador = new Zend_Form_Element_Select('nuAnoColaborador', array("tabindex" => "1",
-                    "title" => "Ano"));
+                    "title" => "Ano", "class" => "chosen-select"));
         $nuAnoColaborador->setLabel('Ano:');
         $this->addElement($nuAnoColaborador);
 
