@@ -1,7 +1,9 @@
 $(function(){
 
+    var chosenConfig = {no_results_text: "Resultado não encontrado!"};
+    $('.chosen-select').chosen(chosenConfig);
 //$("select#idTurma").chosen({no_results_text: "Resultado não encontrado!"});
-	//$.prompt("<div class='loadGif'><img src='/img/structure/11.gif'><img></div>");
+        //$.prompt("<div class='loadGif'><img src='/img/structure/11.gif'><img></div>");
     var data = new Date();
     $("input#dtEmprestimo").mask("99/99/9999");    
     var dia = function(dia){
@@ -131,12 +133,13 @@ $(function(){
         $('div#mensagem').hide();
         var opcao = $(this).val();
         $('form fieldset').removeClass('selected');
-        $('select#idColaborador, select#idLivro, select#idTurma').val("");
-        $("select#noEvangelizando").html('<option label="Selecione a turma..." value="">Selecione a turma...</option>');
+        $('select#idColaborador, select#idLivro, select#idTurma').val("").trigger("chosen:updated");
+        $("select#noEvangelizando").html('<option label="Selecione a turma..." value="">Selecione a turma...</option>').trigger("chosen:updated");
         $("div#nuExemplar").hide();
+        $('select#nuExemplar').val("").trigger("chosen:updated");
         if(opcao === "evangelizando"){
             $('fieldset#evangelizando').addClass('selected');
-                    
+
         }else if(opcao === "colaborador"){
             $('fieldset#colaborador').addClass('selected');
         }
@@ -172,8 +175,8 @@ $(function(){
                 },
                 success: function(data, textStatus){
                     $('fieldset#evangelizandoTurma').addClass('selected');
-                    $('select#noEvangelizando').html(data);
-                                        
+                    $('select#noEvangelizando').html(data).trigger("chosen:updated");
+
                 },
                 error: function(xhr,er){                
                     new Messi('Erro interno, por favor entre em contato com o administrador.', {
@@ -183,6 +186,7 @@ $(function(){
             });
         }else{
             $('fieldset#evangelizandoTurma').removeClass('selected');
+            $('select#noEvangelizando').val("").trigger("chosen:updated");
         }
     });
     
@@ -215,8 +219,8 @@ $(function(){
                 },
                 success: function(data, textStatus){
                     $('div#nuExemplar').show();
-                    $('select#nuExemplar').html(data);
-                                        
+                    $('select#nuExemplar').html(data).trigger("chosen:updated");
+
                 },
                 error: function(xhr,er){                
                     new Messi('Erro interno, por favor entre em contato com o administrador.', {
@@ -226,6 +230,7 @@ $(function(){
             });
         }else{
             $('div#nuExemplar').hide();
+            $('select#nuExemplar').val("").trigger("chosen:updated");
         }
     });
        
@@ -242,9 +247,10 @@ $(function(){
             if(devLivro < 2){
                 $("input#dtPrevDevolucao").removeAttr('disabled');
                 $("select#nuExemplar").css("display","block");
+                $("select#nuExemplar").trigger("chosen:updated");
                 $('<input>').attr({
-                    type: 'hidden', 
-                    id: 'method', 
+                    type: 'hidden',
+                    id: 'method',
                     name: 'method'
                 }).val('save').appendTo('.form');
 		

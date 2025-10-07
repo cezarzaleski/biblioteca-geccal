@@ -48,12 +48,63 @@ form.form fieldset textArea{
     background:  #fafafa;
     margin-top: 2%;
 }
+form.form fieldset .chosen-container{
+    float: left;
+    width: 67% !important;
+    margin-top: 2%;
+}
+form.form fieldset .chosen-container-single .chosen-single{
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #919090;
+    border-radius: 5px;
+    background: #fafafa;
+    box-shadow: none;
+    padding: 0 35px 0 8px;
+}
+form.form fieldset .chosen-container-single .chosen-single span{
+    line-height: 32px;
+}
+form.form fieldset .chosen-container-single .chosen-single div{
+    width: 35px;
+}
+form.form fieldset .chosen-container-single .chosen-single div b{
+    background-position: 0 9px;
+}
+form.form fieldset .chosen-container.chosen-disabled .chosen-single{
+    background: #E5E5E5;
+}
+form.form fieldset .chosen-container .chosen-drop{
+    border: 1px solid #919090;
+    border-top: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+form.form fieldset .chosen-container .chosen-results{
+    color: #333333;
+    font-size: 14px;
+}
+form.form fieldset .chosen-container .chosen-results li{
+    color: #333333;
+    background-color: #ffffff;
+    line-height: 20px;
+    padding: 6px 8px;
+}
+form.form fieldset .chosen-container .chosen-results li.highlighted{
+    color: #ffffff;
+    background-color: #658DB5;
+}
 form.form fieldset textArea{
     height: 65px;
     font-size: 12px;
 }
-form.form fieldset input[type="text"]:focus, form.form fieldset select:focus, 
+form.form fieldset input[type="text"]:focus, form.form fieldset select:focus,
 form.form fieldset input[type="password"]:focus, form.form textArea:focus{
+    border: 1px solid #658DB5;
+    background: #ffffff;
+}
+form.form fieldset .chosen-container-active .chosen-single,
+form.form fieldset .chosen-container-single .chosen-single:hover{
     border: 1px solid #658DB5;
     background: #ffffff;
 }
