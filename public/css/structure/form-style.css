@@ -85,11 +85,14 @@ form.form fieldset .chosen-container .chosen-results{
     font-size: 14px;
 }
 form.form fieldset .chosen-container .chosen-results li{
-    color: inherit;
+    color: #333333;
+    background-color: #ffffff;
     line-height: 20px;
+    padding: 6px 8px;
 }
 form.form fieldset .chosen-container .chosen-results li.highlighted{
     color: #ffffff;
+    background-color: #658DB5;
 }
 form.form fieldset textArea{
     height: 65px;
