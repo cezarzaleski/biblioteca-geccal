@@ -74,6 +74,23 @@ form.form fieldset .chosen-container-single .chosen-single div b{
 form.form fieldset .chosen-container.chosen-disabled .chosen-single{
     background: #E5E5E5;
 }
+form.form fieldset .chosen-container .chosen-drop{
+    border: 1px solid #919090;
+    border-top: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+}
+form.form fieldset .chosen-container .chosen-results{
+    color: #333333;
+    font-size: 14px;
+}
+form.form fieldset .chosen-container .chosen-results li{
+    color: inherit;
+    line-height: 20px;
+}
+form.form fieldset .chosen-container .chosen-results li.highlighted{
+    color: #ffffff;
+}
 form.form fieldset textArea{
     height: 65px;
     font-size: 12px;
